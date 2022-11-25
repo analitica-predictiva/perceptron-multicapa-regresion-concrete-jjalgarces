@@ -19,16 +19,16 @@ def pregunta_01():
     df = pd.read_csv("concrete.csv", sep=",")
 
     # Asigne la columna `strength` a la variable `y`.
-    y = df['strength'] 
+    y_data = df['strength'] 
 
     # Asigne una copia del dataframe `df` a la variable `X`.
-    x = df.copy()
+    x_data = df.copy()
 
     # Remueva la columna `strength` del DataFrame `X`.
-    x.drop(['strength'], axis = 1, inplace = True)
+    x_data.drop(['strength'], axis = 1, inplace = True)
 
     # Retorne `X` y `y`
-    return x, y
+    return x_data, y_data
 
 
 def pregunta_02():
