@@ -19,7 +19,7 @@ def pregunta_01():
     df = pd.read_csv("concrete.csv", sep=",")
 
     # Asigne la columna `strength` a la variable `y`.
-    y_data = df['strength'] 
+    y_data = df['strength'].to_numpy() 
 
     # Asigne una copia del dataframe `df` a la variable `X`.
     x_data = df.copy()
