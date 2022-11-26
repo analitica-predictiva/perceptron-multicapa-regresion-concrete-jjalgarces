@@ -16,19 +16,19 @@ def pregunta_01():
     Carga y separación de los datos en `X` `y`
     """
     # Lea el archivo `concrete.csv` y asignelo al DataFrame `df`
-    df = pd.read_csv("concrete.csv", sep=",")
+    df = pd.read_csv("concrete.csv")   
 
     # Asigne la columna `strength` a la variable `y`.
-    y_data = df['strength'].to_numpy() 
+    y = df["strength"].values
 
     # Asigne una copia del dataframe `df` a la variable `X`.
-    x_data = df.copy()
+    x = df.copy()
 
     # Remueva la columna `strength` del DataFrame `X`.
-    x_data.drop(['strength'], axis = 1, inplace = True)
+    x = x.drop(columns="strength") 
 
     # Retorne `X` y `y`
-    return x_data, y_data
+    return x, y
 
 
 def pregunta_02():
@@ -37,7 +37,7 @@ def pregunta_02():
     """
 
     # Importe train_test_split
-    from ____ import ____
+    from sklearn.model_selection import train_test_split
 
     # Cargue los datos de ejemplo y asigne los resultados a `X` y `y`.
     x, y = pregunta_01()
@@ -49,11 +49,11 @@ def pregunta_02():
         x_test,  
         y_train,  
         y_test,  
-    ) = ____(  
-        ____,  
-        ____,  
-        test_size=____,  
-        random_state=____,  
+    ) = train_test_split(  
+        x,  
+        y,  
+        test_size=0.75,  
+        random_state=12453,  
     )  
 
     # Retorne `X_train`, `X_test`, `y_train` y `y_test`
